@@ -26,6 +26,7 @@ export default function Sidebar() {
             <nav className="space-y-2">
                 {routes.map((route) => (
                     <Link
+                        prefetch
                         key={route.href}
                         href={route.href}
                         className={`${navItem} ${isActive(route.href, pathname) ? "bg-gray-200" : ""}`}
