@@ -3,6 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+function isActive(href: string, pathname: string) {
+    if (href === "/") return pathname === "/";
+    return pathname.startsWith(href) && href !== "/";
+}
+
 export default function Sidebar() {
     const pathname = usePathname();
     const navItem =
@@ -23,8 +28,7 @@ export default function Sidebar() {
                     <Link
                         key={route.href}
                         href={route.href}
-                        className={`${navItem} ${pathname === route.href ? "bg-gray-200" : ""
-                            }`}
+                        className={`${navItem} ${isActive(route.href, pathname) ? "bg-gray-200" : ""}`}
                     >
                         {route.label}
                     </Link>
