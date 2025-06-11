@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { IProduct } from "@/lib/api/products";
 
-export default function ProductList({ product }: { product: IProduct }) {
+export default function ProductItem({ product }: { product: IProduct }) {
 
     return (
         <Link

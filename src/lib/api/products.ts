@@ -15,20 +15,26 @@ export async function getProductList() {
     const res = await fetch(API_URL);
     const data = await res.json();
 
-    return data.products.map((product: IProduct) => ({
-        id: product.id,
-        title: product.title,
-        description: product.description,
-        thumbnail: product.thumbnail,
-        price: product.price,
-        stock: product.stock,
-        saleprice: product.salePrice ? product.salePrice : undefined,
-        solisSoldOutout: product.stock === 0 ? true : false
-    }));
+    return data.products.map(normalizeProduct);
 }
 
 export async function getProductById(id: string) {
     const res = await fetch(`${API_URL}/${id}`);
     const data = await res.json();
-    return data as IProduct;
+
+    return normalizeProduct(data);
+}
+
+// 공통 데이터 가공 함수
+function normalizeProduct(data: any): IProduct {
+    return {
+        id: data.id,
+        title: data.title,
+        description: data.description,
+        thumbnail: data.thumbnail,
+        price: data.price,
+        stock: data.stock,
+        salePrice: data.salePrice ? data.salePrice : undefined,
+        isSoldOut: data.stock === 0 ? true : false,
+    };
 }

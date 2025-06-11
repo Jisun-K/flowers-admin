@@ -38,8 +38,9 @@ export default async function ProductDetail({ params }: { params: { id: string }
                             <div className="text-gray-800">{product.stock}</div>
                         </div>
                         <div className="flex-1 flex items-center mt-6">
-                            <span className="block text-sm font-medium text-gray-700 mb-1">품절</span>
-                            <span className="ml-2">{product.isSoldOut || product.stock === 0 ? "✅" : "❌"}</span>
+                            <span className="block text-sm font-medium text-gray-700 mb-1">판매 진행 상황</span>
+                            <span className="ml-2">{product.isSoldOut || product.stock === 0 ? "❌" : "✅"}</span>
+
                         </div>
                     </div>
                     <div className="flex justify-end space-x-3 pt-6">

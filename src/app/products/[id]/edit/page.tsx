@@ -16,7 +16,6 @@ export default function ProductEditPage({ params }: { params: Promise<{ id: stri
         return <div>로딩 중...</div>;
     }
 
-
     return (
         <div className="bg-white rounded-lg shadow p-8 max-w-2xl mx-auto mt-8">
             <h2 className="text-xl font-bold mb-6">상품 상세</h2>
@@ -78,8 +77,8 @@ export default function ProductEditPage({ params }: { params: Promise<{ id: stri
                         <div className="flex-1 flex items-center mt-6">
                             <input
                                 type="checkbox"
-                                checked={product.stock === 0}
-                                readOnly
+                                checked={product.stock === 0 || product.isSoldOut}
+                                onAbort={() => { }}
                                 className="mr-2"
                                 id="soldout"
                             />
