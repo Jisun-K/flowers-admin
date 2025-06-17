@@ -65,7 +65,7 @@ export default function ProductEditPage({ params }: { params: Promise<{ id: stri
                         </div>
                     </div>
                     <div className="flex space-x-4 items-center">
-                        <div className="flex-1">
+                        {/* <div className="flex-1">
                             <label className="block text-sm font-medium text-gray-700 mb-1">재고</label>
                             <input
                                 className="w-full border rounded px-3 py-2"
@@ -73,12 +73,12 @@ export default function ProductEditPage({ params }: { params: Promise<{ id: stri
                                 value={product.stock}
                                 readOnly
                             />
-                        </div>
+                        </div> */}
                         <div className="flex-1 flex items-center mt-6">
                             <input
                                 type="checkbox"
                                 checked={product.stock === 0 || product.isSoldOut}
-                                onAbort={() => { }}
+                                onChange={(e) => { setProduct({ ...product, isSoldOut: e.target.checked }) }}
                                 className="mr-2"
                                 id="soldout"
                             />
