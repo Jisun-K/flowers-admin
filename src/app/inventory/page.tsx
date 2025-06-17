@@ -40,7 +40,7 @@ export default function InventoryPage() {
                 </button>
             </form>
             <div
-                className="bg-white rounded-lg shadow p-4"
+                className="bg-white rounded-lg shadow p-4  max-w-screen-xl mx-auto"
                 style={{ maxHeight: 320, overflowY: "auto", minHeight: 160 }}
             >
                 {filtered.length === 0 ? (
@@ -48,7 +48,7 @@ export default function InventoryPage() {
                 ) : (
                     <table className="w-full text-xs">
                         <thead>
-                            <tr className="text-gray-600 border-b">
+                            <tr className="text-gray-600 border-b  text-[13px] h-8">
                                 <th className="py-1 px-2 text-left">날짜</th>
                                 <th className="py-1 px-2 text-left">상품명</th>
                                 <th className="py-1 px-2 text-left">구분</th>
@@ -59,7 +59,7 @@ export default function InventoryPage() {
                         </thead>
                         <tbody>
                             {filtered.map((item, idx) => (
-                                <tr key={idx} className="border-b last:border-b-0">
+                                <tr key={idx} className="border-b last:border-b-0  text-[13px] h-8">
                                     <td className="py-1 px-2">{item.date}</td>
                                     <td className="py-1 px-2">{item.name}</td>
                                     <td className="py-1 px-2">{item.type}</td>
