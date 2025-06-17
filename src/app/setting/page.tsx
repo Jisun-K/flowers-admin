@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Flowers | Setting"
+};
+
+
 export default function Setting() {
     return (
         <div className="p-6 space-y-8">

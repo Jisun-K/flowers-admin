@@ -1,6 +1,13 @@
 import { getProductById } from "@/lib/api/products";
 import Link from "next/link";
 
+export async function generateMetadata({ params }: { params: { id: string } }) {
+    const product = await getProductById(params.id);
+    return {
+        title: `Flowers | ${product.title}`
+    };
+}
+
 export default async function ProductDetail({ params }: { params: { id: string } }) {
     const product = await getProductById(params.id);
 
@@ -33,10 +40,10 @@ export default async function ProductDetail({ params }: { params: { id: string }
                         </div>
                     </div>
                     <div className="flex space-x-4 items-center">
-                        <div className="flex-1">
+                        {/* <div className="flex-1">
                             <span className="block text-sm font-medium text-gray-700 mb-1">재고</span>
                             <div className="text-gray-800">{product.stock}</div>
-                        </div>
+                        </div> */}
                         <div className="flex-1 flex items-center mt-6">
                             <span className="block text-sm font-medium text-gray-700 mb-1">판매 진행 상황</span>
                             <span className="ml-2">{product.isSoldOut || product.stock === 0 ? "❌" : "✅"}</span>

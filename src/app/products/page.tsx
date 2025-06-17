@@ -1,5 +1,11 @@
 import ProductItem from "@/components/product-item";
 import { getProductList, IProduct } from "@/lib/api/products";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Flowers | Products"
+};
+
 
 export default async function ProductsPage() {
     const products = await getProductList();
