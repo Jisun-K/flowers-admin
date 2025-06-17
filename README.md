@@ -1,1 +1,22 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+[대시보드]
+- 위젯 선택
+- 주문 관리 리스트
+- 예약 일정 (캘린더)
+
+[주문관리]
+- 주문 내역 조회
+- 수락 여부 
+- 캘린더 자동 저장
+
+[재고관리]
+- 입출고 히스토리 확인
+- 입출고 등록
+- 총 토탈 재고
+
+[상품관리]
+- 상품 기본정보
+- 상세정보 및 판매여부 수정 가능
+
+[설정]
+- 비밀번호 변경
+- 관리자 추가
