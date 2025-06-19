@@ -4,7 +4,7 @@ import Link from "next/link";
 export async function generateMetadata({ params }: { params: { id: string } }) {
     const product = await getProductById(params.id);
     return {
-        title: `Flowers | ${product.title}`
+        title: `Flowers | ${product.productName}`
     };
 }
 
@@ -18,12 +18,12 @@ export default async function ProductDetail({ params }: { params: { id: string }
                 <img
                     className="w-40 h-40 object-cover rounded border"
                     src={product.thumbnail}
-                    alt={product.title}
+                    alt={product.productName}
                 />
                 <div className="flex-1 space-y-4">
                     <div>
                         <span className="block text-sm font-medium text-gray-700 mb-1">이름</span>
-                        <div className="text-lg font-semibold">{product.title}</div>
+                        <div className="text-lg font-semibold">{product.productName}</div>
                     </div>
                     <div>
                         <span className="block text-sm font-medium text-gray-700 mb-1">설명</span>

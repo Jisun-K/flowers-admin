@@ -1,6 +1,6 @@
 export interface IProduct {
     id: number;
-    title: string;
+    productName: string;
     description: string;
     thumbnail: string;
     price: number;
@@ -29,7 +29,7 @@ export async function getProductById(id: string) {
 function normalizeProduct(data: any): IProduct {
     return {
         id: data.id,
-        title: data.title,
+        productName: data.title,
         description: data.description,
         thumbnail: data.thumbnail,
         price: data.price,

@@ -43,7 +43,7 @@ export default function InventoryPage() {
                 <button
                     type="submit"
                     className="px-3 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                >
+                > 
                     검색
                 </button>
             </form> */}

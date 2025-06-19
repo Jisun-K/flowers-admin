@@ -13,10 +13,10 @@ export default function ProductItem({ product }: { product: IProduct }) {
             <img
                 className="w-24 h-24 object-cover rounded-lg border border-gray-200 group-hover:scale-105 transition-transform"
                 src={product.thumbnail}
-                alt={product.title}
+                alt={product.productName}
             />
             <div className="flex-1">
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{product.title}</h3>
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-blue-600 transition-colors">{product.productName}</h3>
                 <p className="text-gray-500 mt-1 line-clamp-2">{product.description}</p>
                 <div className="flex items-center gap-2 mt-3">
                     <span className="text-base font-semibold text-blue-700">{product.price.toLocaleString()}원</span>
