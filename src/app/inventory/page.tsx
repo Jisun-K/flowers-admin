@@ -1,6 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "@/components/ui/table"
 
 const mockHistory = [
     { id: 1, name: "장미", date: "2025-06-17", type: "입고", qty: 10, manager: "홍길동", note: "신규입고" },
@@ -13,16 +21,16 @@ export default function InventoryPage() {
     const [search, setSearch] = useState("");
 
     // 날짜 내림차순 정렬
-    const sorted = [...mockHistory].sort((a, b) => b.date.localeCompare(a.date));
-    // 검색어가 있으면 상품명에 해당하는 내역만 필터링
-    const filtered = search
-        ? sorted.filter(item => item.name.includes(search))
-        : sorted;
+    // const sorted = [...mockHistory].sort((a, b) => b.date.localeCompare(a.date));
+    // // 검색어가 있으면 상품명에 해당하는 내역만 필터링
+    // const filtered = search
+    //     ? sorted.filter(item => item.name.includes(search))
+    //     : sorted;
 
     return (
         <div className="p-6">
             <h2 className="text-xl font-bold mb-4">입출고 내역</h2>
-            <form
+            {/* <form
                 className="flex items-center mb-4 gap-2"
                 onSubmit={e => { e.preventDefault(); }}
             >
@@ -38,42 +46,43 @@ export default function InventoryPage() {
                 >
                     검색
                 </button>
-            </form>
+            </form> */}
             <div
                 className="bg-white rounded-lg shadow p-4  max-w-screen-xl mx-auto"
                 style={{ maxHeight: 320, overflowY: "auto", minHeight: 160 }}
             >
-                {filtered.length === 0 ? (
+                {/* {filtered.length === 0 ? (
                     <div className="text-gray-400 text-center py-8">입출고 내역이 없습니다.</div>
-                ) : (
-                    <table className="w-full text-xs">
-                        <thead>
-                            <tr className="text-gray-600 border-b  text-[13px] h-8">
-                                <th className="py-1 px-2 text-left">날짜</th>
-                                <th className="py-1 px-2 text-left">상품명</th>
-                                <th className="py-1 px-2 text-left">구분</th>
-                                <th className="py-1 px-2 text-right">수량</th>
-                                <th className="py-1 px-2 text-left">담당자</th>
-                                <th className="py-1 px-2 text-left">비고</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {filtered.map((item, idx) => (
-                                <tr key={idx} className="border-b last:border-b-0  text-[13px] h-8">
-                                    <td className="py-1 px-2">{item.date}</td>
-                                    <td className="py-1 px-2">{item.name}</td>
-                                    <td className="py-1 px-2">{item.type}</td>
-                                    <td className={`py-1 px-2 text-right font-bold ${item.qty > 0 ? "text-blue-600" : "text-red-500"}`}>
-                                        {item.qty > 0 ? `+${item.qty}` : item.qty}
-                                    </td>
-                                    <td className="py-1 px-2">{item.manager}</td>
-                                    <td className="py-1 px-2">{item.note}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                )}
+                ) : ( */}
+                <Table>
+                    {/* <TableCaption>A list of your recent invoices.</TableCaption> */}
+                    <TableHeader>
+                        <TableRow>
+                            <TableHead className="w-[100px]">날짜</TableHead>
+                            <TableHead>상품명</TableHead>
+                            <TableHead>구분</TableHead>
+                            <TableHead>수량</TableHead>
+                            <TableHead>담당자</TableHead>
+                            <TableHead>비고</TableHead>
+                        </TableRow>
+                    </TableHeader>
+                    <TableBody>
+                        {mockHistory.map(stock => (
+                            <TableRow key={stock.id} className="hover:bg-muted/50">
+                                <TableCell >{stock.date}</TableCell>
+                                <TableCell>{stock.name}</TableCell>
+                                <TableCell>{stock.type}</TableCell>
+                                <TableCell className={`${stock.qty > 0 ? "text-blue-600" : "text-red-500"}`}>  {stock.qty > 0 ? `+${stock.qty}` : stock.qty}</TableCell>
+                                <TableCell className="text-right">{stock.manager}</TableCell>
+                                <TableCell>{stock.note}</TableCell>
+                            </TableRow>
+                        ))}
+
+                    </TableBody>
+                </Table>
+                {/* )} */}
             </div>
         </div>
     );
 }
+
