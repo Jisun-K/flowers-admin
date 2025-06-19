@@ -53,10 +53,14 @@ export default function OrdersPage() {
     //     : mockOrders;
 
     return (
-        <div className="bg-white rounded-lg shadow p-4  max-w-screen-xl mx-auto"
-            style={{ maxHeight: 320, overflowY: "auto", minHeight: 160 }}>
-            <OrderTable data={mockOrders} />
+        <div className="p-6">
+            <h2 className="text-xl font-bold mb-4">상품 관리</h2>
+            <div className="bg-white rounded-lg shadow p-4  max-w-screen-xl mx-auto"
+                style={{ maxHeight: 320, overflowY: "auto", minHeight: 160 }}>
+                <OrderTable data={mockOrders} />
 
+            </div>
         </div>
+
     );
 }
