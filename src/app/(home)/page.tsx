@@ -1,7 +1,43 @@
 "use client";
 
+import OrderTable from "@/components/OrderTable";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
+
+// 더미 주문 데이터
+const mockOrders = [
+  {
+    id: 1,
+    orderNumber: "1001",
+    date: "2025-06-18",
+    customer: "홍길동",
+    productName: "장미",
+    qty: 3,
+    price: 15000,
+    status: "결제완료",
+  },
+  {
+    id: 2,
+    orderNumber: "1002",
+    date: "2025-06-17",
+    customer: "김철수",
+    productName: "튤립",
+    qty: 2,
+    price: 12000,
+    status: "배송중",
+  },
+  {
+    id: 3,
+    orderNumber: "1003",
+    date: "2025-06-16",
+    customer: "박영희",
+    productName: "장미",
+    qty: 1,
+    price: 5000,
+    status: "주문취소",
+  },
+];
+
 
 export default function HomePage() {
   const [sliderRef] = useKeenSlider<HTMLDivElement>({
@@ -29,7 +65,9 @@ export default function HomePage() {
       <div className="grid grid-cols-2 gap-6">
         <section>
           <h2 className="text-xl font-bold mb-4">주문 관리 </h2>
-          <div className="bg-white rounded-lg shadow p-6 h-64 max-w-xl ">리스트 업</div>
+          <div className="bg-white rounded-lg shadow p-6 h-64 max-w-xl ">
+            <OrderTable data={mockOrders} />
+          </div>
         </section>
         <section>
           <h2 className="text-xl font-bold mb-4">예약 일정</h2>

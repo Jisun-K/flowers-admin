@@ -58,7 +58,6 @@ export default function OrdersPage() {
             <div className="bg-white rounded-lg shadow p-4  max-w-screen-xl mx-auto"
                 style={{ maxHeight: 320, overflowY: "auto", minHeight: 160 }}>
                 <OrderTable data={mockOrders} />
-
             </div>
         </div>
 

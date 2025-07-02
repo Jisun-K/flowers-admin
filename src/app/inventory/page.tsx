@@ -12,8 +12,8 @@ import {
 
 const mockHistory = [
     { id: 1, name: "장미", date: "2025-06-17", type: "입고", qty: 10, manager: "홍길동", note: "신규입고" },
-    { id: 1, name: "장미", date: "2025-06-16", type: "출고", qty: -3, manager: "김철수", note: "주문출고" },
-    { id: 2, name: "튤립", date: "2025-06-15", type: "입고", qty: 8, manager: "박영희", note: "입고" },
+    { id: 2, name: "장미", date: "2025-06-16", type: "출고", qty: -3, manager: "김철수", note: "주문출고" },
+    { id: 33, name: "튤립", date: "2025-06-15", type: "입고", qty: 8, manager: "박영희", note: "입고" },
     // 더미 데이터 추가 가능
 ];
 
