@@ -5,14 +5,14 @@ import React, { useEffect, useState } from "react";
 import { getProductById, IProduct } from "@/lib/api/products";
 
 export default function ProductEditPage({ params }: { params: Promise<{ id: string }> }) {
-    const { id } = React.use(params); // params 언래핑
+    const { id } = React.use(params);
     const [product, setProduct] = useState({} as IProduct);
 
     useEffect(() => {
         getProductById(id).then(setProduct);
     }, [id]);
 
-    if (!product || !product.title) {
+    if (!product || !product.productName) {
         return <div>로딩 중...</div>;
     }
 
@@ -23,7 +23,7 @@ export default function ProductEditPage({ params }: { params: Promise<{ id: stri
                 <img
                     className="w-40 h-40 object-cover rounded border"
                     src={product.thumbnail}
-                    alt={product.title}
+                    alt={product.productName}
                 />
                 <div className="flex-1 space-y-4">
                     <div>
@@ -31,7 +31,7 @@ export default function ProductEditPage({ params }: { params: Promise<{ id: stri
                         <input
                             className="w-full border rounded px-3 py-2"
                             type="text"
-                            value={product.title}
+                            value={product.productName}
                             readOnly
                         />
                     </div>

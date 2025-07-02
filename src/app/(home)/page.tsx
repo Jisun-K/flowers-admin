@@ -1,24 +1,31 @@
-import { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Flowers | Home"
-};
+import "keen-slider/keen-slider.min.css";
+import { useKeenSlider } from "keen-slider/react";
 
 export default function HomePage() {
+  const [sliderRef] = useKeenSlider<HTMLDivElement>({
+    slides: { perView: 2.5, spacing: 16 },
+    mode: "free-snap",
+  });
+
   return (
-    <div className="p-6 space-y-8  max-w-screen-xl mx-auto">
-      <section>
+    <div>
+      <section className="mb-8">
         <h2 className="text-xl font-bold mb-4">대시보드</h2>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-0 max-w-xl ">
-            카드 위젯 1
+        <div ref={sliderRef} className="keen-slider">
+          <div className="keen-slider__slide bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-[260px] max-w-xs">
+            카드 위젯
           </div>
-          <div className="bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-0 max-w-xl ">
+          <div className="keen-slider__slide bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-[260px] max-w-xs">
             카드 위젯 2
           </div>
-
+          <div className="keen-slider__slide bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-[50px] max-w-xs">
+            +
+          </div>
         </div>
       </section>
+
       <div className="grid grid-cols-2 gap-6">
         <section>
           <h2 className="text-xl font-bold mb-4">주문 관리 </h2>

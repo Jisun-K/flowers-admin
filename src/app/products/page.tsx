@@ -1,4 +1,4 @@
-import ProductItem from "@/components/product-item";
+import ProductItem from "@/components/ProductItem";
 import { getProductList, IProduct } from "@/lib/api/products";
 import { Metadata } from "next";
 
