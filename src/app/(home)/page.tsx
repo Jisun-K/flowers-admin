@@ -1,10 +1,37 @@
 "use client";
 
 import OrderTable from "@/components/OrderTable";
+import Widget from "@/components/Widget";
 import "keen-slider/keen-slider.min.css";
 import { useKeenSlider } from "keen-slider/react";
 
-// 더미 주문 데이터
+const mockWidgets = [
+  {
+    id: 1,
+    title: "오늘의 주문",
+    value: 25,
+    icon: "📦",
+  },
+  {
+    id: 2,
+    title: "총 매출",
+    value: "₩1,200,000",
+    icon: "💰",
+  },
+  {
+    id: 3,
+    title: "신규 고객",
+    value: 10,
+    icon: "👥",
+  },
+  {
+    id: 4,
+    title: "재고 현황",
+    value: "150개",
+    icon: "📊",
+  }
+]
+
 const mockOrders = [
   {
     id: 1,
@@ -50,12 +77,10 @@ export default function HomePage() {
       <section className="mb-8">
         <h2 className="text-xl font-bold mb-4">대시보드</h2>
         <div ref={sliderRef} className="keen-slider">
-          <div className="keen-slider__slide bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-[260px] max-w-xs">
-            카드 위젯
-          </div>
-          <div className="keen-slider__slide bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-[260px] max-w-xs">
-            카드 위젯 2
-          </div>
+          {mockWidgets.map((widget) => (
+            <Widget></Widget>
+          ))
+          }
           <div className="keen-slider__slide bg-white rounded-lg shadow p-6 h-64 flex items-center justify-center min-w-[50px] max-w-xs">
             +
           </div>
